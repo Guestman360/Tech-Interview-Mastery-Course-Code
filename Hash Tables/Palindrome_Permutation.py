@@ -1,10 +1,10 @@
 def hasPalindromePermutation(theString):
-  unpairedCharacters = set()
+    unpairedCharacters = set()
 
-  for char in list(theString):
-    if char in unpairedCharacters:
-      unpairedCharacters.remove(char)
-    else:
-      unpairedCharacters.add(char)
+    for char in list(theString):
+      if char in unpairedCharacters:
+        unpairedCharacters.remove(char)
+      else:
+        unpairedCharacters.add(char)
 
-  return len(unpairedCharacters) <= 1
+    return len(unpairedCharacters) <= 1
