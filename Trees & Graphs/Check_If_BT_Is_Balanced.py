@@ -1,28 +1,28 @@
-def isBalanced(root, height): 
-      
-    # lh and rh to store height of  
-    # left and right subtree 
-    lh = Height() 
-    rh = Height() 
-  
-    # Base condition when tree is  
-    # empty return true 
-    if root is None: 
-        return True
-  
-    # l and r are used to check if left 
-    # and right subtree are balanced 
-    l = isBalanced(root.left, lh) 
-    r = isBalanced(root.right, rh) 
-  
-    # height of tree is maximum of  
-    # left subtree height and 
-    # right subtree height plus 1 
-    height.height = max(lh.height, rh.height) + 1
-  
-    if abs(lh.height - rh.height) <= 1: 
-        return l and r 
-  
-    # if we reach here then the tree  
-    # is not balanced 
-    return False
+#Final solution
+def is_balanced_helper(root):
+
+  # a None tree is balanced
+  if root is None:
+    return 0
+
+  left_height = is_balanced_helper(root.left)
+
+  # if the left subtree is not balanced, then:
+  # this tree is also not balanced
+  if left_height == -1:
+    return -1
+
+  # if the right subtree is not balanced, then:
+  # this tree is also not balanced
+  right_height = is_balanced_helper(root.right)
+
+  if right_height == -1:
+    return -1
+
+  # if the difference in heights is greater than 1, then:
+  # this tree is not balanced
+  if abs(left_height - right_height) > 1:
+    return -1
+
+  # this tree is balanced, return its height
+  return max(left_height, right_height) + 1

@@ -1,4 +1,4 @@
-  class MyQueue(object):
+class MyQueue(object):
 
     def __init__(self):
         self.stack1 = []
