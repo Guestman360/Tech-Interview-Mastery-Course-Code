@@ -1,4 +1,7 @@
 #Final solution
+def is_balanced(root):
+  return is_balanced_helper(root) > -1
+
 def is_balanced_helper(root):
 
   # a None tree is balanced
